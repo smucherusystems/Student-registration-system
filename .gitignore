@@ -1,0 +1,280 @@
+# Student Management System - Git Ignore File
+
+# ============================================
+# Sensitive Configuration Files
+# ============================================
+config/database.php
+config/config.php
+.env
+.env.local
+.env.production
+
+# ============================================
+# Database Files
+# ============================================
+*.sql.backup
+*.sql.gz
+*.sql.zip
+backup/
+backups/
+database_backups/
+
+# ============================================
+# PHP
+# ============================================
+# Composer
+vendor/
+composer.lock
+composer.phar
+
+# PHP Session Files
+sessions/
+tmp/
+temp/
+
+# PHP Error Logs
+error_log
+php_errors.log
+*.log
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PhpStorm / IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+
+# Eclipse
+.project
+.buildpath
+.settings/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# Operating System Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Upload Directories
+# ============================================
+uploads/
+upload/
+files/
+documents/
+student_photos/
+attachments/
+
+# But keep the directory structure
+!uploads/.gitkeep
+!upload/.gitkeep
+!files/.gitkeep
+
+# ============================================
+# Cache and Temporary Files
+# ============================================
+cache/
+*.cache
+*.tmp
+*.temp
+.cache/
+
+# ============================================
+# Build and Distribution
+# ============================================
+build/
+dist/
+out/
+
+# ============================================
+# Node.js (if using npm for frontend tools)
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ============================================
+# Testing
+# ============================================
+tests/coverage/
+phpunit.xml
+.phpunit.result.cache
+
+# ============================================
+# Documentation
+# ============================================
+docs/_build/
+*.pdf.backup
+
+# ============================================
+# Security
+# ============================================
+# SSH Keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+id_rsa
+id_rsa.pub
+
+# SSL Certificates
+ssl/
+certificates/
+
+# ============================================
+# Backup Files
+# ============================================
+*.bak
+*.backup
+*.old
+*~.nib
+*.orig
+
+# ============================================
+# Compressed Files
+# ============================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================
+# Version Control
+# ============================================
+.svn/
+.hg/
+.bzr/
+
+# ============================================
+# Project Specific
+# ============================================
+# Demo and test files (optional - uncomment if needed)
+# *_demo.html
+# *_demo.php
+# test_*.php
+
+# Migration backups
+# migration_*.sql.backup
+
+# Local development overrides
+config.local.php
+database.local.php
+
+# User-specific settings
+.user.ini
+
+# ============================================
+# Logs and Reports
+# ============================================
+logs/
+*.log
+log.txt
+error.txt
+access.log
+error.log
+
+# ============================================
+# Media Files (if not tracked)
+# ============================================
+# Uncomment if you don't want to track media files
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.mp4
+# *.mp3
+# *.pdf
+
+# ============================================
+# Miscellaneous
+# ============================================
+.htaccess.backup
+robots.txt.backup
+sitemap.xml
+
+# Package managers
+.bundle/
+.sass-cache/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output/
+
+# Grunt intermediate storage
+.grunt/
+
+# Bower dependency directory
+bower_components/
+
+# Lock files
+*.lock
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Force include important files even if they match patterns above
+!.gitignore
+!.htaccess
+!README.md
+!LICENSE
+!CHANGELOG.md
+.kiro/
