@@ -1,5 +1,6 @@
 # Student Management System
 
+<<<<<<< HEAD
 A comprehensive web-based application for managing student records, academic performance, financial transactions, and attendance tracking with secure user authentication.
 
 ## Overview
@@ -69,6 +70,18 @@ The Student Management System is a full-featured educational administration plat
 - Color-coded status indicators
 - Interactive data tables
 - Form validation with real-time feedback
+=======
+A web-based application for managing student records with user authentication.
+
+## Features
+
+- User authentication system (login/logout)
+- Student registration and management
+- View, add, and manage student records
+- Responsive web interface
+- Secure password hashing
+- Database-driven architecture
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 
 ## Prerequisites
 
@@ -79,6 +92,7 @@ The Student Management System is a full-featured educational administration plat
 
 ## Installation
 
+<<<<<<< HEAD
 ### Step 1: Clone the Repository
 ```bash
 git clone <repository-url>
@@ -166,6 +180,28 @@ try {
    - Select a date
    - Mark attendance for all students (present, absent, late, excused)
    - View attendance calendar and statistics
+=======
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. Import the database:
+   - Create a new MySQL database named `student_management`
+   - Import the `db.sql` file to set up the database structure and default admin user
+
+3. Configure the database connection:
+   - Edit `config/database.php` with your database credentials
+   - Update the following constants as needed:
+     ```php
+     define('DB_SERVER', 'localhost');
+     define('DB_USERNAME', 'your_username');
+     define('DB_PASSWORD', 'your_password');
+     define('DB_NAME', 'student_management');
+     ```
+
+4. Place the project files in your web server's root directory
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 
 ## Default Login Credentials
 
@@ -177,6 +213,7 @@ try {
 ```
 project-root/
 ├── config/
+<<<<<<< HEAD
 │   └── database.php              # Database configuration
 ├── css/
 │   └── style.css                 # Main stylesheet with modern design system
@@ -206,6 +243,21 @@ project-root/
 ├── process_registration.php      # Student registration processing
 ├── db.sql                        # Initial database schema
 └── migration_add_grades_fees_attendance.sql  # Enhanced schema migration
+=======
+│   └── database.php    # Database configuration
+├── css/
+│   └── style.css       # Stylesheets
+├── js/
+│   ├── main.js         # Main JavaScript file
+│   └── ...
+├── dashboard.php       # Main dashboard
+├── index.html          # Landing page
+├── login.html          # Login page
+├── logout.php          # Logout handler
+├── process_login.php   # Login processing
+├── process_registration.php  # Registration handling
+└── db.sql              # Database schema and sample data
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 ```
 
 ## Database Schema
@@ -213,6 +265,7 @@ project-root/
 ### Tables
 
 1. **students**
+<<<<<<< HEAD
    - id (INT, PK, AUTO_INCREMENT)
    - name (VARCHAR 100)
    - email (VARCHAR 100, UNIQUE)
@@ -386,12 +439,38 @@ project-root/
 
 We welcome contributions! Please follow these steps:
 
+=======
+   - id (INT, PK)
+   - name (VARCHAR)
+   - email (VARCHAR, UNIQUE)
+   - phone (VARCHAR)
+   - course (VARCHAR)
+   - gender (ENUM)
+   - created_at (TIMESTAMP)
+
+2. **admin_users**
+   - id (INT, PK)
+   - username (VARCHAR, UNIQUE)
+   - password_hash (VARCHAR)
+   - created_at (TIMESTAMP)
+
+## Security Notes
+
+- Passwords are hashed using PHP's `password_hash()`
+- SQL injection prevention using PDO prepared statements
+- Session management for user authentication
+- Always change the default admin password after first login
+
+## Contributing
+
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+<<<<<<< HEAD
 ### Coding Standards
 - Follow PSR-12 coding standards for PHP
 - Use meaningful variable and function names
@@ -399,10 +478,13 @@ We welcome contributions! Please follow these steps:
 - Write clean, maintainable code
 - Test thoroughly before submitting PR
 
+=======
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
+<<<<<<< HEAD
 ## Changelog
 
 ### Version 2.0.0 (Current)
@@ -438,3 +520,8 @@ For support, questions, or feedback:
 ---
 
 **Made with ❤️ for educational institutions worldwide**
+=======
+## Support
+
+For support, please open an issue in the repository or contact the development team.
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9

@@ -218,6 +218,7 @@ function submitForm() {
 // Function to display messages to user
 function showMessage(messageDiv, message, type) {
     messageDiv.textContent = message;
+<<<<<<< HEAD
     messageDiv.className = type === 'success' ? 'notification success-notification' : 'notification error-notification';
     messageDiv.style.display = 'block';
     messageDiv.style.opacity = '1';
@@ -228,5 +229,13 @@ function showMessage(messageDiv, message, type) {
         setTimeout(() => {
             messageDiv.style.display = 'none';
         }, 300);
+=======
+    messageDiv.className = `message ${type}`;
+    messageDiv.style.display = 'block';
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
     }, 5000);
 }

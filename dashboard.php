@@ -1,10 +1,24 @@
 <?php
+<<<<<<< HEAD
 // Check authentication
 require_once 'auth_check.php';
+=======
+// Start session and check if user is logged in
+session_start();
+
+// Simple authentication check - in a real application, you'd use proper session management
+$is_logged_in = true; // This would normally come from session validation
+
+if (!$is_logged_in) {
+    header('Location: login.html');
+    exit;
+}
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 
 // Include database configuration
 require_once 'config/database.php';
 
+<<<<<<< HEAD
 // Initialize messages
 $success_message = '';
 $error_message = '';
@@ -19,6 +33,8 @@ if (isset($_SESSION['error_message'])) {
     unset($_SESSION['error_message']);
 }
 
+=======
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 // Handle delete operation
 if (isset($_GET['delete_id'])) {
     $delete_id = (int)$_GET['delete_id'];
@@ -28,6 +44,7 @@ if (isset($_GET['delete_id'])) {
         $delete_stmt = $pdo->prepare($delete_sql);
         $delete_stmt->execute(['id' => $delete_id]);
         
+<<<<<<< HEAD
         $_SESSION['success_message'] = "Student deleted successfully!";
         header('Location: dashboard.php');
         exit;
@@ -139,6 +156,23 @@ try {
     // Table might not exist yet, ignore error
     $recent_grades = [];
 }
+=======
+        $delete_message = "Student record deleted successfully!";
+    } catch (PDOException $e) {
+        $delete_error = "Error deleting record: " . $e->getMessage();
+    }
+}
+
+// Fetch all students from database
+try {
+    $sql = "SELECT * FROM students ORDER BY created_at DESC";
+    $stmt = $pdo->query($sql);
+    $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $error = "Error fetching students: " . $e->getMessage();
+    $students = [];
+}
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 ?>
 
 <!DOCTYPE html>
@@ -148,6 +182,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Student Management System</title>
     <link rel="stylesheet" href="css/style.css">
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -157,17 +192,28 @@ try {
         <p style="margin-top: 1rem; color: #7f8c8d; font-weight: 500;">Loading dashboard...</p>
     </div>
     
+=======
+</head>
+<body>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <h1 class="nav-logo">Admin Dashboard</h1>
                 <ul class="nav-menu">
+<<<<<<< HEAD
                     <li><a href="dashboard.php" class="nav-link active">Dashboard</a></li>
                     <li><a href="registration.php" class="nav-link">Register Student</a></li>
                     <li><a href="grades.php" class="nav-link">Grades</a></li>
                     <li><a href="fees.php" class="nav-link">Fees</a></li>
                     <li><a href="attendance.php" class="nav-link">Attendance</a></li>
                     <li><a href="logout.php" class="nav-link">Logout</a></li>
+=======
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="registration.html" class="nav-link">Register Student</a></li>
+                    <li><a href="login.html" class="nav-link">Admin Login</a></li>
+                    <li><a href="dashboard.php" class="nav-link active">Dashboard</a></li>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                 </ul>
             </div>
         </nav>
@@ -175,6 +221,7 @@ try {
 
     <main class="main-content">
         <div class="container">
+<<<<<<< HEAD
             <!-- Display messages -->
             <?php if (!empty($success_message)): ?>
                 <div class="notification success-notification"><?php echo htmlspecialchars($success_message); ?></div>
@@ -441,15 +488,36 @@ try {
                         </div>
                     </div>
                 </div>
+=======
+            <div class="table-container">
+                <h2>Registered Students</h2>
+                
+                <!-- Display messages -->
+                <?php if (isset($delete_message)): ?>
+                    <div class="message success"><?php echo htmlspecialchars($delete_message); ?></div>
+                <?php endif; ?>
+                
+                <?php if (isset($delete_error)): ?>
+                    <div class="message error"><?php echo htmlspecialchars($delete_error); ?></div>
+                <?php endif; ?>
+                
+                <?php if (isset($error)): ?>
+                    <div class="message error"><?php echo htmlspecialchars($error); ?></div>
+                <?php endif; ?>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 
                 <!-- Students Table -->
                 <?php if (empty($students)): ?>
                     <div class="message">No students registered yet.</div>
                 <?php else: ?>
+<<<<<<< HEAD
                     <div id="noResultsMessage" class="no-results-message" style="display: none;">
                         No students found matching your search criteria.
                     </div>
                     <table class="students-table" id="studentsTable">
+=======
+                    <table class="students-table">
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -458,11 +526,15 @@ try {
                                 <th>Phone</th>
                                 <th>Course</th>
                                 <th>Gender</th>
+<<<<<<< HEAD
                                 <th>Fee Status</th>
+=======
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                                 <th>Registration Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
+<<<<<<< HEAD
                         <tbody id="studentsTableBody">
                             <?php foreach ($students as $student): ?>
                                 <tr data-name="<?php echo htmlspecialchars(strtolower($student['name'])); ?>" 
@@ -472,10 +544,18 @@ try {
                                     data-gender="<?php echo htmlspecialchars($student['gender']); ?>">
                                     <td><?php echo htmlspecialchars($student['id']); ?></td>
                                     <td><a href="student_profile.php?id=<?php echo $student['id']; ?>" class="student-link"><?php echo htmlspecialchars($student['name']); ?></a></td>
+=======
+                        <tbody>
+                            <?php foreach ($students as $student): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($student['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($student['name']); ?></td>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                                     <td><?php echo htmlspecialchars($student['email']); ?></td>
                                     <td><?php echo htmlspecialchars($student['phone']); ?></td>
                                     <td><?php echo htmlspecialchars($student['course']); ?></td>
                                     <td><?php echo htmlspecialchars($student['gender']); ?></td>
+<<<<<<< HEAD
                                     <td>
                                         <?php if ($student['fee_status'] === 'paid' || $student['fee_status'] === 'none'): ?>
                                             <span class="status-badge status-paid">✓ Paid</span>
@@ -494,11 +574,25 @@ try {
                                         <a href="fees.php?student_id=<?php echo $student['id']; ?>" class="btn btn-warning btn-sm" title="Manage Fees">💳 Fees</a>
                                         <a href="edit_student.php?id=<?php echo $student['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="dashboard.php?delete_id=<?php echo $student['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+=======
+                                    <td><?php echo date('M j, Y g:i A', strtotime($student['created_at'])); ?></td>
+                                    <td class="action-buttons">
+                                        <a href="edit_student.php?id=<?php echo $student['id']; ?>" class="btn btn-primary">Edit</a>
+                                        <a href="dashboard.php?delete_id=<?php echo $student['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+<<<<<<< HEAD
+=======
+                    
+                    <!-- Summary -->
+                    <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 4px;">
+                        <strong>Total Students: <?php echo count($students); ?></strong>
+                    </div>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
                 <?php endif; ?>
             </div>
         </div>
@@ -510,6 +604,7 @@ try {
         </div>
     </footer>
 
+<<<<<<< HEAD
     <script src="js/loading.js"></script>
     <script src="js/script.js"></script>
     <script>
@@ -704,5 +799,8 @@ try {
             }
         });
     </script>
+=======
+    <script src="js/script.js"></script>
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 </body>
 </html>

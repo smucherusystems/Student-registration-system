@@ -2,7 +2,11 @@
 // Database configuration - Update these according to your MySQL 8.0 setup
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
+<<<<<<< HEAD
 define('DB_PASSWORD', 'NewPassword123!'); // Your MySQL 8.0 password
+=======
+define('DB_PASSWORD', 'Password'); // Your MySQL 8.0 password
+>>>>>>> 3cb5da58f31c0757cef5d1e30b5efadd9d2234a9
 define('DB_NAME', 'student_management');
 
 // Attempt to connect to MySQL database
