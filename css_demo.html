@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Design System Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">School Management System</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Dashboard</a></li>
+                <li><a href="#" class="nav-link">Students</a></li>
+                <li><a href="#" class="nav-link">Grades</a></li>
+                <li><a href="#" class="nav-link">Fees</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 2rem 0;">
+        <h1 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Modern Design System Demo</h1>
+
+        <!-- Card Variants Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Card Components</h2>
+            <div class="card-grid-4">
+                <div class="card-stat card-primary">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>250</h3>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+                <div class="card-stat card-success">
+                    <div class="stat-icon">✓</div>
+                    <div class="stat-content">
+                        <h3>95%</h3>
+                        <p>Attendance Rate</p>
+                    </div>
+                </div>
+                <div class="card-stat card-warning">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3>$5,200</h3>
+                        <p>Pending Fees</p>
+                    </div>
+                </div>
+                <div class="card-stat card-info-color">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <h3>85%</h3>
+                        <p>Average Grade</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Components Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Form Components</h2>
+            <div class="card">
+                <form class="registration-form">
+                    <div class="form-group">
+                        <label class="required">Student Name</label>
+                        <input type="text" class="form-input" placeholder="Enter student name">
+                        <div class="form-help-text">Please enter the full name of the student</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Email Address</label>
+                        <input type="email" class="form-input valid" placeholder="student@example.com" value="john@example.com">
+                        <div class="form-validation-message success">Email format is valid</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Course</label>
+                        <select class="form-input">
+                            <option>Select a course</option>
+                            <option>Computer Science</option>
+                            <option>Mathematics</option>
+                            <option>Physics</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button type="submit" class="btn btn-primary">Submit Form</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <button type="button" class="btn btn-outline-primary">Save Draft</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Button Variants Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Button Variants</h2>
+            <div class="card">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <button class="btn btn-primary">Primary</button>
+                    <button class="btn btn-success">Success</button>
+                    <button class="btn btn-danger">Danger</button>
+                    <button class="btn btn-warning">Warning</button>
+                    <button class="btn btn-info">Info</button>
+                    <button class="btn btn-secondary">Secondary</button>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <button class="btn btn-outline-primary">Outline Primary</button>
+                    <button class="btn btn-outline-secondary">Outline Secondary</button>
+                    <button class="btn btn-outline-danger">Outline Danger</button>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary btn-sm">Small Button</button>
+                    <button class="btn btn-primary">Regular Button</button>
+                    <button class="btn btn-primary btn-lg">Large Button</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Enhanced Table</h2>
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Student Records</h2>
+                    <div class="table-actions">
+                        <button class="btn btn-primary btn-sm">Add Student</button>
+                        <button class="btn btn-secondary btn-sm">Export</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>Computer Science</td>
+                                <td><span class="status-badge status-present">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn action-btn-primary">View</button>
+                                        <button class="action-btn action-btn-success">Edit</button>
+                                        <button class="action-btn action-btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Jane Smith</td>
+                                <td>jane@example.com</td>
+                                <td>Mathematics</td>
+                                <td><span class="status-badge status-present">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn action-btn-primary">View</button>
+                                        <button class="action-btn action-btn-success">Edit</button>
+                                        <button class="action-btn action-btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Bob Johnson</td>
+                                <td>bob@example.com</td>
+                                <td>Physics</td>
+                                <td><span class="status-badge status-late">Inactive</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn action-btn-primary">View</button>
+                                        <button class="action-btn action-btn-success">Edit</button>
+                                        <button class="action-btn action-btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toast Notifications Demo -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: #2c3e50; margin-bottom: 1.5rem;">Toast Notifications</h2>
+            <div class="card">
+                <p style="margin-bottom: 1rem;">Click buttons to see toast notifications:</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-success" onclick="showToast('success')">Show Success</button>
+                    <button class="btn btn-danger" onclick="showToast('error')">Show Error</button>
+                    <button class="btn btn-warning" onclick="showToast('warning')">Show Warning</button>
+                    <button class="btn btn-info" onclick="showToast('info')">Show Info</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        function showToast(type) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            
+            const messages = {
+                success: { title: 'Success!', message: 'Operation completed successfully' },
+                error: { title: 'Error!', message: 'Something went wrong' },
+                warning: { title: 'Warning!', message: 'Please review your input' },
+                info: { title: 'Information', message: 'Here is some useful information' }
+            };
+            
+            const msg = messages[type];
+            
+            toast.innerHTML = `
+                <div class="toast-icon"></div>
+                <div class="toast-content">
+                    <div class="toast-title">${msg.title}</div>
+                    <div class="toast-message">${msg.message}</div>
+                </div>
+                <button class="toast-close" onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                toast.classList.add('hiding');
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

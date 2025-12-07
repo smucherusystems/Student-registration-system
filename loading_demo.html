@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading States Demo - School Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p style="margin-top: 1rem; color: #7f8c8d; font-weight: 500;">Loading...</p>
+    </div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-logo">Loading States Demo</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="dashboard.php" class="nav-link">Dashboard</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Loading States & Transitions Demo</h2>
+                <p>Test all loading indicators and smooth transitions</p>
+            </div>
+
+            <!-- Demo Controls -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>Demo Controls</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <button class="btn btn-primary" onclick="testFullPageLoading()">Test Full Page Loading</button>
+                    <button class="btn btn-primary" onclick="testSkeletonLoaders()">Test Skeleton Loaders</button>
+                    <button class="btn btn-primary" onclick="testButtonLoading()">Test Button Loading</button>
+                    <button class="btn btn-primary" onclick="testCardLoading()">Test Card Loading</button>
+                    <button class="btn btn-primary" onclick="testFadeInAnimation()">Test Fade In Animation</button>
+                </div>
+            </div>
+
+            <!-- Stats Grid for Skeleton Demo -->
+            <h3>Statistics Cards</h3>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card stat-card-primary">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3>150</h3>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-card-warning">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <h3>$5,240</h3>
+                        <p>Pending Fees</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-card-success">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>92.5%</h3>
+                        <p>Average Attendance</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card stat-card-info">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-content">
+                        <h3>85.3%</h3>
+                        <p>Average Grades</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Cards for Skeleton Demo -->
+            <h3 style="margin-top: 2rem;">Quick Actions</h3>
+            <div class="quick-actions-grid" id="actionsGrid">
+                <div class="action-card action-card-blue">
+                    <div class="action-icon">📝</div>
+                    <h4>Manage Grades</h4>
+                    <p>Add or update student grades</p>
+                </div>
+                
+                <div class="action-card action-card-green">
+                    <div class="action-icon">💳</div>
+                    <h4>Record Payment</h4>
+                    <p>Process fee payments</p>
+                </div>
+                
+                <div class="action-card action-card-purple">
+                    <div class="action-icon">✓</div>
+                    <h4>Mark Attendance</h4>
+                    <p>Record student attendance</p>
+                </div>
+                
+                <div class="action-card action-card-orange">
+                    <div class="action-icon">➕</div>
+                    <h4>Add Student</h4>
+                    <p>Register new student</p>
+                </div>
+            </div>
+
+            <!-- Card Loading Demo -->
+            <h3 style="margin-top: 2rem;">Card Loading State</h3>
+            <div class="card" id="demoCard">
+                <h3>Sample Card</h3>
+                <p>This card can show a loading state when data is being fetched.</p>
+                <button class="btn btn-primary" onclick="testCardLoading()">Load Data</button>
+            </div>
+
+            <!-- Button Loading Demo -->
+            <h3 style="margin-top: 2rem;">Button Loading States</h3>
+            <div class="card">
+                <button class="btn btn-primary" id="demoButton" onclick="testButtonLoading()">
+                    Click to Load
+                </button>
+                <button class="btn btn-success" style="margin-left: 1rem;" onclick="testFormLoading()">
+                    Test Form Loading
+                </button>
+            </div>
+
+            <!-- Form Loading Demo -->
+            <h3 style="margin-top: 2rem;">Form Loading State</h3>
+            <div class="card">
+                <form id="demoForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-input" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-input" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                </form>
+            </div>
+
+            <!-- Table Loading Demo -->
+            <h3 style="margin-top: 2rem;">Table Loading State</h3>
+            <div class="table-container">
+                <table class="students-table" id="demoTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="demoTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" style="margin-top: 1rem;" onclick="testTableLoading()">
+                    Reload Table Data
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Student Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/loading.js"></script>
+    <script>
+        // Test full page loading
+        function testFullPageLoading() {
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                alert('Full page loading complete!');
+            }, 2000);
+        }
+
+        // Test skeleton loaders
+        function testSkeletonLoaders() {
+            // Show skeleton for stats
+            showStatSkeletons();
+            
+            // Show skeleton for actions
+            showActionSkeletons();
+            
+            // Restore after 2 seconds
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+        }
+
+        // Test button loading
+        function testButtonLoading() {
+            const button = document.getElementById('demoButton');
+            setButtonLoading(button, true);
+            
+            setTimeout(() => {
+                setButtonLoading(button, false);
+                alert('Button loading complete!');
+            }, 2000);
+        }
+
+        // Test card loading
+        function testCardLoading() {
+            const card = document.getElementById('demoCard');
+            setCardLoading(card, true);
+            
+            setTimeout(() => {
+                setCardLoading(card, false);
+                alert('Card loading complete!');
+            }, 2000);
+        }
+
+        // Test form loading
+        function testFormLoading() {
+            const form = document.getElementById('demoForm');
+            setFormLoading(form, true);
+            
+            setTimeout(() => {
+                setFormLoading(form, false);
+                alert('Form loading complete!');
+            }, 2000);
+        }
+
+        // Test table loading
+        function testTableLoading() {
+            showTableLoading('demoTable');
+            
+            setTimeout(() => {
+                const content = `
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bob Johnson</td>
+                        <td>bob@example.com</td>
+                        <td>Active</td>
+                    </tr>
+                `;
+                hideTableLoading('demoTable', content);
+            }, 2000);
+        }
+
+        // Test fade in animation
+        function testFadeInAnimation() {
+            fadeInElements('.stat-card', 100);
+            fadeInElements('.action-card', 100);
+        }
+
+        // Hide loading on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            hideLoading();
+        });
+    </script>
+</body>
+</html>
